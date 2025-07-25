@@ -40,3 +40,18 @@ body {
 .animate-blink {
   animation: blink 100ms steps(5, start) infinite;
 }
+
+.experience-box:nth-child(2n)::before{
+  content: "•";
+  position: absolute;
+  font-size: 3rem;
+  left: -87px;
+}
+
+.experience-box:nth-child(2n+1)::after{
+  content: "•";
+  position: absolute;
+  font-size: 3rem;
+  left: 553px;
+  top: 0;
+}

@@ -15,7 +15,6 @@ const Background: React.FC = () => {
   }, []);
 
   const particlesLoaded = (container: any) => {
-    console.log(container);
   };
 
   return (
@@ -93,9 +92,10 @@ const Background: React.FC = () => {
             },
             detectRetina: true,
           }}
+          className="absolute top-0 left-0 w-full h-full z-[-1]"
+           style={{ height: '100vh', width: '100vw' }}
         />
       )}
-    <h1>Hello world</h1>
     </>
   );
 };

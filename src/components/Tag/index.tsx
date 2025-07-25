@@ -8,7 +8,7 @@ const Tag = () => {
   const [isErasing, setIsErasing] = useState(false);
     const words = TABLET;
     const erasingSpeed = 50;
-    const typingSpeed = 100;
+    const typingSpeed = 300;
     const delay = 100;
 
   useEffect(() => {
