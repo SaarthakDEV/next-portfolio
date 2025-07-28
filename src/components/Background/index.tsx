@@ -14,7 +14,9 @@ const Background: React.FC = () => {
     });
   }, []);
 
-  const particlesLoaded = (container: any) => {
+  const particlesLoaded = async (container?: unknown): Promise<void> => {
+    // You can add any logic here if needed
+    return;
   };
 
   return (
@@ -40,7 +42,7 @@ const Background: React.FC = () => {
                   enable: false,
                   mode: "repulse",
                 },
-                resize: true,
+                resize: { enable: true },
               },
               modes: {
                 push: {
@@ -76,7 +78,7 @@ const Background: React.FC = () => {
               number: {
                 density: {
                   enable: true,
-                  area: 800,
+                  width: 800,
                 },
                 value: 200,
               },

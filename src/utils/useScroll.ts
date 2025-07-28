@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 
-type Entry = {
-    isIntersecting: boolean,
-    target: HTMLElement
-}
+// Remove custom Entry type, use IntersectionObserverEntry directly
 
 const useScroll = (sectionId: string[]) => {
     const [activeId, setActiveId] = useState<string>("");
@@ -15,22 +12,21 @@ const useScroll = (sectionId: string[]) => {
     threshold: 0.1,
   };
   
-  const callback = (enteries: Entry[]) => {
-    enteries.forEach((entry: Entry) => {
-        if(entry.isIntersecting){
-            // console.log(entry.target.getAttribute("id")) 
-            setActiveId(entry.target.getAttribute("id"))
-        }
+  const callback: IntersectionObserverCallback = (entries) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      if (entry.isIntersecting) {
+        setActiveId(entry.target instanceof HTMLElement ? entry.target.getAttribute("id") || "" : "");
+      }
     });
-  }
-  const observer = new IntersectionObserver(callback, options);
+  };
 
-  sectionId.map(id => {
+  sectionId.forEach((id) => {
     const el = document.getElementById(id);
-    if(el){
-        observer.observe(el);
+    if (el) {
+      const observer = new IntersectionObserver(callback, options);
+      observer.observe(el);
     }
-  })
+  });
 
   }, [sectionId]);
 
