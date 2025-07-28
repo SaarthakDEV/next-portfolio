@@ -66,7 +66,7 @@ const Contact = () => {
     if (!isFormValid()) return;
 
     axios
-      .post("http://localhost:3000/api/", {
+      .post("https://next-portfolio-khaki-psi.vercel.app//api/", {
         data: formData,
       })
       .then((res) => {
