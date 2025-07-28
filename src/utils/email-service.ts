@@ -12,7 +12,7 @@ const sendEmail = async (name: string, email: string, message: string) => {
 
     const mailOptions = {
     from: process.env.NODEMAILER_EMAIL, // or your own email
-    to: process.env.NODEMAILER_EMAIL,
+    to: "saarthak173@gmail.com",
     subject: `New message from ${name}`,
     text: message,
     html: `<p><strong>Name:</strong> ${name}</p>
