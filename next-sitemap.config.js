@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://next-portfolio-khaki-psi.vercel.app/",
+  siteUrl: "https://devsaarthak.fun/",
   generateRobotsTxt: true,
   sitemapSize: 5000,
   changefreq: "weekly",
