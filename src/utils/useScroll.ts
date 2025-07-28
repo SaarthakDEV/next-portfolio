@@ -16,7 +16,6 @@ const useScroll = (sectionId: string[]) => {
   };
   
   const callback = (enteries: Entry[]) => {
-    console.log(enteries)
     enteries.forEach((entry: Entry) => {
         if(entry.isIntersecting){
             // console.log(entry.target.getAttribute("id")) 

@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -58,21 +59,26 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Final validation before submit
     Object.entries(formData).forEach(([key, value]) =>
       validateField(key, value)
     );
 
     if (!isFormValid()) return;
 
-    console.log(formData);
-    setSubmitted(true);
+    axios
+      .post("http://localhost:3000/api/", {
+        data: formData,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setSubmitted(true);
+        }
+      });
   };
 
   return (
     <section id="contact" className="bg-black text-white py-10 md:py-20">
       <div className="container mx-auto max-w-6xl px-4 flex flex-col lg:flex-row items-center gap-12">
-        {/* Image Section */}
         <div className="w-full lg:w-1/2 hidden lg:block">
           <Image
             src="/images/contact-section.png"
@@ -83,8 +89,6 @@ const Contact = () => {
             priority
           />
         </div>
-
-        {/* Form Section */}
         <div className="w-full lg:w-1/2">
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-center">
             Contact Me
@@ -96,9 +100,11 @@ const Contact = () => {
             </p>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -110,7 +116,9 @@ const Contact = () => {
                   className={`w-full p-3 border ${
                     formErrors.name ? "border-red-500" : "border-gray-600"
                   } bg-black rounded-lg focus:outline-none focus:ring-2 ${
-                    formErrors.name ? "focus:ring-red-500" : "focus:ring-blue-500"
+                    formErrors.name
+                      ? "focus:ring-red-500"
+                      : "focus:ring-blue-500"
                   }`}
                 />
                 {formErrors.name && (
@@ -118,9 +126,11 @@ const Contact = () => {
                 )}
               </div>
 
-              {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -132,17 +142,23 @@ const Contact = () => {
                   className={`w-full p-3 border ${
                     formErrors.email ? "border-red-500" : "border-gray-600"
                   } bg-black rounded-lg focus:outline-none focus:ring-2 ${
-                    formErrors.email ? "focus:ring-red-500" : "focus:ring-blue-500"
+                    formErrors.email
+                      ? "focus:ring-red-500"
+                      : "focus:ring-blue-500"
                   }`}
                 />
                 {formErrors.email && (
-                  <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.email}
+                  </p>
                 )}
               </div>
-
-              {/* Message */}
+                
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -154,11 +170,15 @@ const Contact = () => {
                   className={`w-full p-3 border ${
                     formErrors.message ? "border-red-500" : "border-gray-600"
                   } bg-black rounded-lg focus:outline-none focus:ring-2 ${
-                    formErrors.message ? "focus:ring-red-500" : "focus:ring-blue-500"
+                    formErrors.message
+                      ? "focus:ring-red-500"
+                      : "focus:ring-blue-500"
                   }`}
                 />
                 {formErrors.message && (
-                  <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors.message}
+                  </p>
                 )}
               </div>
 
