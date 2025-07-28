@@ -6,10 +6,10 @@ import React from "react";
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-black py-16 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="bg-black py-10 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-6xl font-bold text-white mb-4">My Work</h2>
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-4">My Work</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">

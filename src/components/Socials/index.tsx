@@ -32,7 +32,7 @@ const Socials = () => {
     },
   ];
   return (
-    <div className="mt-20 text-lg">
+    <div className="my-20 text-lg">
       Let's Connect on my socials!!
       <div className="flex justify-center mt-4 gap-8">
         {SOCIAL_LINKS.map((link) => (

@@ -7,9 +7,9 @@ const Experience = () => {
 
   return (
     <div id="experience" className="min-h-screen bg-black">
-      <main className="max-w-6xl mx-auto py-15">
+      <main className="max-w-6xl mx-auto py-10 md:py-20">
         <div className="text-center mb-16">
-          <h1 className="text-6xl md:text-7xl mb-6">Experience & Education</h1>
+          <h1 className="text-5xl md:text-7xl mb-6">Experience & Education</h1>
         </div>
 
         <div className="relative">
